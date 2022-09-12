@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+body {
+    background-image: url(./fondo.jpg);
+    background-position-y: center;
+}
+
+.calculadora {
+    margin: 100px auto;
+    border: solid 1px green;
+    width: 370px;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255, .5);
+    text-align: center;
+}
+
+.contenedor-resultado {
+    width: 350px;
+    height: 80px;
+    border: solid 1px lightgray;
+    margin: 50px auto;
+    background-color: rgba(3, 53, 3, 0.6);
+    font-family: 'Barlow', sans-serif;
+}
+
+.contenedor-botones {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    grid-template-columns: repeat(6, 50px);
+    margin: 50px auto;
+}
+
+.boton {
+    width: 50px;
+    height: 50px;
+    background-color: blanchedalmond;
+    font-weight: bold;
+}
+
+.igual {
+    height: 110px;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 7;
+    background-color: darkslategray;
+}
+
+.resultado {
+    text-align: center;
+}
+
+.nombre {
+    margin: 1rem auto;
+    font-size: 1.8rem;
+    color: rgb(6, 62, 6);
+    font-family: 'Barlow', sans-serif;
+}
+
+.numbers {
+    background-color: darkslategray;
+}
+
+.numbers:hover {
+    background-color: rgb(104, 149, 104);
+}
+
+.igual:hover {
+    background-color: rgb(104, 149, 104);
+}
+
+.nan {
+    background-color: seagreen;
+}
+
+.nan:hover {
+    background-color: rgb(52, 90, 54);
+}
+
+.texto-resultado {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5rem;
+    color: beige;
+}
