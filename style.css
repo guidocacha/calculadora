@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
 body {
     background-image: url(./fondo.jpg);
     background-position-y: center;
+    
 }
 
 .calculadora {
@@ -11,15 +11,18 @@ body {
     border-radius: 1rem;
     background-color: rgb(255, 255, 255, .5);
     text-align: center;
+    font-family: 'DotGothic16', sans-serif;
 }
 
 .contenedor-resultado {
     width: 350px;
     height: 80px;
     border: solid 1px lightgray;
+    border-radius: 1em;
     margin: 50px auto;
-    background-color: rgba(3, 53, 3, 0.6);
-    font-family: 'Barlow', sans-serif;
+    background-color: rgba(43, 44, 43, 1);  
+    color: beige;  
+    display: flex;
 }
 
 .contenedor-botones {
@@ -35,6 +38,7 @@ body {
     height: 50px;
     background-color: blanchedalmond;
     font-weight: bold;
+    border-radius: 50%;
 }
 
 .igual {
@@ -43,11 +47,15 @@ body {
     grid-column-end: 7;
     grid-row-start: 5;
     grid-row-end: 7;
-    background-color: darkslategray;
+    background-color: #F59906;
+    color: beige;
+    border-radius: 1rem;
 }
 
 .resultado {
-    text-align: center;
+    margin: auto;
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
 }
 
 .nombre {
@@ -58,23 +66,25 @@ body {
 }
 
 .numbers {
-    background-color: darkslategray;
+    background-color: #313131;
+    color: beige;
 }
 
 .numbers:hover {
-    background-color: rgb(104, 149, 104);
+    background-color: #313191;
 }
 
 .igual:hover {
-    background-color: rgb(104, 149, 104);
+    background-color: #F59986;
 }
 
 .nan {
-    background-color: seagreen;
+    background-color: #F59906;
+    color: beige;
 }
 
 .nan:hover {
-    background-color: rgb(52, 90, 54);
+    background-color: #F59986;
 }
 
 .texto-resultado {
