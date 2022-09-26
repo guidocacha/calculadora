@@ -9,7 +9,7 @@ body {
     border: solid 1px green;
     width: 370px;
     border-radius: 1rem;
-    background-color: rgb(255, 255, 255, .5);
+    background-color: rgba(252, 221, 221, 0.5);
     text-align: center;
     font-family: 'DotGothic16', sans-serif;
 }
