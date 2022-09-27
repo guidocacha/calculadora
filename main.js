@@ -2,11 +2,13 @@ let entrada = [];
 let entradaString = '';
 let operandos;
 
+// rutas
 const igual = document.querySelector(".igual");
 const botones = document.querySelectorAll(".boton");
 const ac = document.querySelector(".ac");
 const display = document.querySelector(".resultado");
-
+const hint = document.querySelector(".hint");
+const raizEne = document.querySelector(".raiz-ene")
 
 // carga el array de entrada
 botones.forEach(boton => {
@@ -117,3 +119,11 @@ const factorial = num => {
     }
     return result;
 };
+
+//explicación de la raiz enésima de un número
+raizEne.addEventListener("mouseover", ()=>{
+    hint.classList.remove("transparente");
+})
+raizEne.addEventListener("mouseout", ()=>{
+    hint.classList.add("transparente");
+})

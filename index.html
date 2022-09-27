@@ -10,17 +10,21 @@
     <link rel="stylesheet" href="style.css">
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/1f18090004.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/101/101286.png">
 
 
 </head>
 
 <body>
     <div class="calculadora">
-        <h1 class="nombre"><i class="fa-solid fa-calculator"></i> &nbsp; PANAPHONIC</h1>
+        <div class="contenedor-marca">
+            <h1 class="nombre"><i class="fa-solid fa-calculator"></i> panaphonic</h1>
+        </div>
 
         <div class="contenedor-resultado">
             <div class="resultado">
-                
+
             </div>
         </div>
 
@@ -30,13 +34,15 @@
             <button class="boton factorial nan" value=" x! ">X!</button>
             <button class="boton cuadrado nan" value=" x^2 ">X<sup>2</sup></button>
             <button class="boton raiz-cuad nan" value=" x^-2 "><i class="fa-solid fa-square-root-variable"></i></button>
-            <button class="boton raiz-ene nan" value=" x^-n "><sup>n</sup><i class="fa-solid fa-square-root-variable"></i></button>
+            <button class="boton raiz-ene nan" value=" x^-n "><sup>n</sup><i
+                    class="fa-solid fa-square-root-variable"></i></button>
             <button class="boton seno nan" value=" seno ">sin</button>
             <button class="boton coseno nan" value=" coseno ">cos</button>
             <button class="boton tangente nan" value=" tangente ">tan</button>
             <button class="boton cubo nan" value=" x^3 ">X<sup>3</sup></button>
-            <button class="boton raiz-cub nan" value=" x^-3 "><sup>3</sup><i class="fa-solid fa-square-root-variable"></i></button>
-            <button class="boton equis-a-la-n nan" value=" x^n ">X<sup>n</sup></button> 
+            <button class="boton raiz-cub nan" value=" x^-3 "><sup>3</sup><i
+                    class="fa-solid fa-square-root-variable"></i></button>
+            <button class="boton equis-a-la-n nan" value=" x^n ">X<sup>n</sup></button>
             <button class="boton uno numbers" value="1"><i class="fa-solid fa-1"></i></button>
             <button class="boton dos numbers" value="2"><i class="fa-solid fa-2"></i></button>
             <button class="boton tres numbers" value="3"><i class="fa-solid fa-3"></i></button>
@@ -54,7 +60,7 @@
             <button class="boton nueve numbers" value="9"><i class="fa-solid fa-9"></i></button>
             <button class="boton menos nan" value=" - "><i class="fa-solid fa-minus"></i></button>
             <button class="boton ac nan" value=" ac ">AC</button>
-            <button class="boton igual" ><i class="fa-solid fa-equals"></i></button>
+            <button class="boton igual"><i class="fa-solid fa-equals"></i></button>
             <button class="boton punto nan" value=" . "><strong>.</strong></button>
             <button class="boton cero numbers" value="0"><i class="fa-solid fa-0"></i></button>
             <button class="boton pi nan" value="pi">π</button>
@@ -62,12 +68,14 @@
             <button class="boton memoria nan" value=" memo ">MR</button>
 
         </div>
-
-
-
-
     </div>
-<script src="main.js"></script>
+    <div class="hint transparente">
+        <p>
+            Para realizar esta operación, tenés que ingresar en primera instancia el número correspondiente al índice,
+            luego esta tecla, y por último él o los dígitos correspodientes a la base.
+        </p>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
