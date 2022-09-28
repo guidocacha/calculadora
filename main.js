@@ -10,18 +10,20 @@ const display = document.querySelector(".resultado");
 const hint1 = document.querySelector(".hint1");
 const hint2 = document.querySelector(".hint2");
 const hint3 = document.querySelector(".hint3");
+const hint4 = document.querySelector(".hint4");
 const raizEne = document.querySelector(".raiz-ene");
 const porciento = document.querySelector(".porcentaje");
 const numeroE = document.querySelector(".numero-e");
+const pi = document.querySelector(".pi");
 
 
 
 // carga el array de entrada
 botones.forEach(boton => {
     boton.addEventListener("click", () => {
-        entrada.push(boton.value);
+        entrada.push(boton.value);        
+        let mostrar = "";
         entrada.forEach(elem => {
-            let mostrar = "";
             mostrar += elem;
             display.innerHTML = `<p>${mostrar}</p>`;
 
@@ -61,8 +63,9 @@ const resultado = () => {
                 break;
             case " x^-n ": //me da mal la raiz 5ta de 125
                 exp = 1 / operandos[0];
-                console.log(Math.round(Math.pow(parseFloat(operandos[2]), exp)));
-                display.innerHTML = `<p><sup>${operandos[0]}</sup>√${operandos[2]} = ${Math.round(Math.pow(parseFloat(operandos[2]), exp))}</p>`;
+                console.log(exp)
+                console.log(Math.pow(parseFloat(operandos[2]), exp));
+                display.innerHTML = `<p><sup>${operandos[0]}</sup>√${operandos[2]} = ${Math.pow(parseFloat(operandos[2]), exp).toFixed(6)}</p>`;
                 break;
             case " seno ":
                 display.innerHTML = `<p>seno de ${operandos[0]} = ${Math.sin(operandos[0]).toFixed(6)}</p>`;
@@ -99,12 +102,14 @@ const resultado = () => {
                 display.innerHTML = `<p>el ${operandos[0]}% de ${operandos[2]} es ${operandos[0] / 100 * operandos[2]}</p>`
                 break;
             case " ln ":
+                display.innerHTML = `<p>ln (${operandos[0]}) = ${Math.log(operandos[0]).toFixed(6)}</p>`;
                 break;
             case " * ":
                 display.innerHTML = `<p>${operandos[0]} x ${operandos[2]} = ${parseFloat(operandos[0]) * parseFloat(operandos[2])}</p>`
                 console.log(parseFloat(operandos[0]) * parseFloat(operandos[2]));
                 break;
             case " log ":
+                display.innerHTML = `<p>log (${operandos[0]}) = ${Math.log10(operandos[0]).toFixed(6)}</p>`;
                 break;
             case " e ":
                 //tiene un value asociado
@@ -157,7 +162,9 @@ const giveHint = (domElement, hint) => {
 }
 giveHint(raizEne, hint1);
 giveHint(porciento, hint2);
-giveHint(numeroE, hint3)
+giveHint(numeroE, hint3);
+giveHint(pi, hint4);
+
 
 
 //hacer que se tomen los numeros ingresados por teclado

@@ -10,14 +10,9 @@ body {
     margin: 100px 20px 100px 100px;
     width: fit-content;
     border-radius: 1rem;
-<<<<<<< HEAD
-    background-color: rgba(252, 221, 221, .9);
-    text-align: center;
-=======
     border: solid rgba(43, 44, 43, 1) 3px;
     background-color: rgb(165, 165, 165);
     box-shadow: 5px 5px 100px 0px rgb(165, 165, 165);
->>>>>>> 7a1d55941a206a22137c833ce2fc03c40bb2b827
     font-family: 'DotGothic16', sans-serif;
     padding: 1rem;
 }
@@ -111,7 +106,7 @@ body {
     color: beige;
 }
 
-.hint1 , .hint2, .hint3 {
+.hint1 , .hint2, .hint3, .hint4 {
     width: 250px;
     background-color: #F59906;
     /* margin: 100px 100px 100px 20px; */
