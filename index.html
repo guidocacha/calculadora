@@ -12,6 +12,12 @@
     <script src="https://kit.fontawesome.com/1f18090004.js" crossorigin="anonymous"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/101/101286.png">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 
 
 </head>
@@ -43,9 +49,10 @@
             <button class="boton raiz-cub nan" value=" x^-3 "><sup>3</sup><i
                     class="fa-solid fa-square-root-variable"></i></button>
             <button class="boton equis-a-la-n nan" value=" x^n ">X<sup>n</sup></button>
-            <button class="boton uno numbers" value="1"><i class="fa-solid fa-1"></i></button>
-            <button class="boton dos numbers" value="2"><i class="fa-solid fa-2"></i></button>
-            <button class="boton tres numbers" value="3"><i class="fa-solid fa-3"></i></button>
+            <button class="boton siete numbers" value="7"><i class="fa-solid fa-7"></i></button>
+            <button class="boton ocho numbers" value="8"><i class="fa-solid fa-8"></i></button>
+            <button class="boton nueve numbers" value="9"><i class="fa-solid fa-9"></i></button>
+
             <button class="boton dividido nan" value=" / "><i class="fa-solid fa-divide"></i></button>
             <button class="boton porcentaje nan" value=" % "><i class="fa-solid fa-percent"></i></button>
             <button class="boton log-natural nan" value=" ln ">ln</button>
@@ -54,28 +61,66 @@
             <button class="boton seis numbers" value="6"> <i class="fa-solid fa-6"></i></button>
             <button class="boton por nan" value=" * "><i class="fa-solid fa-xmark"></i></button>
             <button class="boton logaritmo nan" value=" log ">log</button>
-            <button class="boton numero-e nan" value=" e ">e</button>
-            <button class="boton siete numbers" value="7"><i class="fa-solid fa-7"></i></button>
-            <button class="boton ocho numbers" value="8"><i class="fa-solid fa-8"></i></button>
-            <button class="boton nueve numbers" value="9"><i class="fa-solid fa-9"></i></button>
+            <button class="boton numero-e nan" value="2.718281">e</button>
+            <button class="boton uno numbers" value="1"><i class="fa-solid fa-1"></i></button>
+            <button class="boton dos numbers" value="2"><i class="fa-solid fa-2"></i></button>
+            <button class="boton tres numbers" value="3"><i class="fa-solid fa-3"></i></button>
+
             <button class="boton menos nan" value=" - "><i class="fa-solid fa-minus"></i></button>
             <button class="boton ac nan" value=" ac ">AC</button>
             <button class="boton igual"><i class="fa-solid fa-equals"></i></button>
-            <button class="boton punto nan" value=" . "><strong>.</strong></button>
+            <button class="boton punto nan" value="."><strong>.</strong></button>
             <button class="boton cero numbers" value="0"><i class="fa-solid fa-0"></i></button>
-            <button class="boton pi nan" value="pi">π</button>
+            <button class="boton pi nan" value="3.14159">π</button>
             <button class="boton mas nan" value=" + "><i class="fa-solid fa-plus"></i></button>
             <button class="boton memoria nan" value=" memo ">MR</button>
 
         </div>
     </div>
-    <div class="hint transparente">
-        <p>
-            Para realizar esta operación, tenés que ingresar en primera instancia el número correspondiente al índice,
-            luego esta tecla, y por último él o los dígitos correspodientes a la base.
-        </p>
+    <div class="hints">
+        <div class="hint1 transparente">
+            <p>
+                Para realizar esta operación, tenés que ingresar en primera instancia el número correspondiente al
+                índice,
+                luego esta tecla, y por último él o los dígitos correspodientes a la base.
+            </p>
+        </div>
+        <div class="hint2 transparente">
+            <p>
+                Para calcular un porcentaje, primero debés ingresar el porcentaje a calcular, luego este botón, y por
+                último el número al que le querés calcular dicho porcentaje.
+            </p>
+        </div>
+        <div class="hint3 transparente">
+            <p>
+                El número e, es un decimal cuya parte decimal es no periódica y es el único número que hace que el
+                logaritmo natural sea igual a 1.
+                
+        </div>
     </div>
+
+
+    <!-- toast de bootstrap -->
+    <button type="button" class="btn btn-primary btn-toast" id="liveToastBtn">Show live toast</button>
+
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <!-- <img src="..." class="rounded me-2" alt="..."> -->
+                <strong class="me-auto"><i class="fa-solid fa-calculator"></i> panaphonic</strong>
+                <small>recordá</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Poidés usar tu teclado para el ingreso de números y operaciones básicas.
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="main.js"></script>
+
 </body>
 
 </html>
