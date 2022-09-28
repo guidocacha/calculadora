@@ -191,10 +191,10 @@ function teclado(elEvento) {          // copy paste
             entrada.push(9);
             break;
         case 110:
-            entrada.push(" . ");
+            entrada.push(".");
             break;
         case 190:
-            entrada.push(" . ");
+            entrada.push(".");
             break;
         case 106:
             entrada.push(" * ");
