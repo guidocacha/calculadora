@@ -12,6 +12,12 @@ const display = document.querySelector(".resultado");
 botones.forEach(boton => {
     boton.addEventListener("click", () => {
         entrada.push(boton.value);
+        entrada.forEach(elem => {
+            let mostrar = "";
+            mostrar += elem;
+            display.innerHTML = `<p>${mostrar}</p>`;
+
+        })
     })
 })
 
