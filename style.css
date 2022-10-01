@@ -44,6 +44,14 @@ body {
     border-radius: 50%;
 }
 
+.memoria {
+    width: 50px;
+    height: 50px;
+    /* background-color: rgba(43, 44, 43, 1);   */
+    font-weight: bold;
+    border-radius: 50%;
+}
+
 .igual {
     height: 110px;
     grid-column-start: 6;
@@ -84,7 +92,7 @@ body {
 }
 
 .numbers:hover {
-    background-color: #313191;
+    background-color: #616161;
 }
 
 .igual:hover {
@@ -106,7 +114,10 @@ body {
     color: beige;
 }
 
-.hint1 , .hint2, .hint3, .hint4 {
+.hint1,
+.hint2,
+.hint3,
+.hint4 {
     width: 250px;
     background-color: #F59906;
     /* margin: 100px 100px 100px 20px; */
@@ -132,4 +143,44 @@ body {
 
 .btn-toast {
     display: none !important;
+}
+
+.memory {
+    width: 350px;
+    height: fit-content;
+    background-color: rgb(165, 165, 165);
+    color: beige;
+    margin: 100px 20px 100px 100px;
+    border-radius: 1rem;
+    border: solid rgba(43, 44, 43, 1) 3px;
+    font-family: 'DotGothic16', sans-serif;
+    padding: 1rem;
+    box-shadow: 5px 5px 100px 0px rgb(165, 165, 165);
+}
+
+.titulo-memoria {
+    text-shadow: 10px 10px 10px 10px beige;
+
+}
+
+li {
+    margin-right: 32px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.lista-memo {
+    background-color: rgba(43, 44, 43, 7);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+}
+
+.clear-memo {
+    border-radius: 1rem;
+    padding: 9px;
+    font-weight: bold;
+    letter-spacing: .2rem;
 }
