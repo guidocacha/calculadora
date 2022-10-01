@@ -63,14 +63,19 @@ const resultado = () => {
                 display.innerHTML = `<p>${operandos[0]}<sup>2</sup> = ${Math.pow(factor1, 2)}</p>`;
                 break;
             case " x^-2 ":
-                console.log(Math.sqrt(parseFloat(operandos[0])))
-                display.innerHTML = `<p>√${operandos[0]} = ${Math.sqrt(parseFloat(operandos[0]))}</p>`;
+                if (operandos[0] > 0) {
+                    console.log(Math.sqrt(parseFloat(operandos[0])))
+                    display.innerHTML = `<p>√${operandos[0]} = ${Math.sqrt(parseFloat(operandos[0]))}</p>`;
+                } else {
+                    display.innerHTML = `<sup>No se puede calcular la raíz cuadrada de un número negativo</sup>`;
+                }
                 break;
-            case " x^-n ": //me da mal la raiz 5ta de 125
+            case " x^-n ": {
                 exp = 1 / operandos[0];
                 console.log(exp)
                 console.log(Math.pow(parseFloat(operandos[2]), exp));
                 display.innerHTML = `<p><sup>${operandos[0]}</sup>√${operandos[2]} = ${Math.pow(parseFloat(operandos[2]), exp).toFixed(6)}</p>`;
+            }
                 break;
             case " seno ":
                 display.innerHTML = `<p>seno de ${operandos[0]} = ${Math.sin(operandos[0]).toFixed(6)}</p>`;
@@ -107,14 +112,22 @@ const resultado = () => {
                 display.innerHTML = `<p>el ${operandos[0]}% de ${operandos[2]} es ${operandos[0] / 100 * operandos[2]}</p>`
                 break;
             case " ln ":
-                display.innerHTML = `<p>ln (${operandos[0]}) = ${Math.log(operandos[0]).toFixed(6)}</p>`;
+                if (parseFloat(operandos[0]) >= 0) {
+                    display.innerHTML = `<p>ln (${operandos[0]}) = ${Math.log(operandos[0]).toFixed(6)}</p>`;
+                } else {
+                    display.innerHTML = `<sup>No existe el logaritmo de un número negativo</sup>`
+                }
                 break;
             case " * ":
                 display.innerHTML = `<p>${operandos[0]} x ${operandos[2]} = ${(parseFloat(operandos[0]) * parseFloat(operandos[2])).toFixed(6)}</p>`
                 console.log(parseFloat(operandos[0]) * parseFloat(operandos[2]));
                 break;
             case " log ":
-                display.innerHTML = `<p>log (${operandos[0]}) = ${Math.log10(operandos[0]).toFixed(6)}</p>`;
+                if (parseFloat(operandos[0]) >= 0) {
+                    display.innerHTML = `<p>log (${operandos[0]}) = ${Math.log10(operandos[0]).toFixed(6)}</p>`;
+                } else {
+                    display.innerHTML = `<sup>No existe el logaritmo de un número negativo</sup>`
+                }
                 break;
             case " e ":
                 //tiene un value asociado
@@ -186,14 +199,12 @@ memoria.addEventListener("click", () => {
 clearMemo.addEventListener("click", () => {
     if (listaMemo.innerHTML === "") {
         memory.classList.add("transparente");
-        clearMemo.textContent = "Clear memory";        
-    }else {
+        clearMemo.textContent = "Clear memory";
+    } else {
         listaMemo.innerHTML = "";
-        clearMemo.textContent = "Cerrar";   
-    }   
-    })
-
-
+        clearMemo.textContent = "Cerrar";
+    }
+})
 
 
 
