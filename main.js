@@ -2,6 +2,7 @@ let entrada = [];
 let entradaString = '';
 let operandos;
 
+
 // rutas
 const igual = document.querySelector(".igual");
 const botones = document.querySelectorAll(".boton");
@@ -15,19 +16,22 @@ const raizEne = document.querySelector(".raiz-ene");
 const porciento = document.querySelector(".porcentaje");
 const numeroE = document.querySelector(".numero-e");
 const pi = document.querySelector(".pi");
-
+const memoria = document.querySelector(".memoria");
+const listaMemo = document.querySelector(".lista-memo");
+const memory = document.querySelector(".memory");
+const clearMemo = document.querySelector(".clear-memo");
 
 
 // carga el array de entrada
+let mostrar = "";
 botones.forEach(boton => {
     boton.addEventListener("click", () => {
-        entrada.push(boton.value);        
-        let mostrar = "";
+        entrada.push(boton.value);
         entrada.forEach(elem => {
             mostrar += elem;
             display.innerHTML = `<p>${mostrar}</p>`;
-
         })
+        mostrar = "";
     })
 })
 
@@ -38,6 +42,7 @@ igual.addEventListener("click", () => {
     operandos = entradaString.split(" ");  //divido por el caracter no numérico -->aray
     resultado();
     entrada = [];    //vacío el array de entrada
+    mostrar = "";
 });
 
 //hacer la cuenta y mostrar en display
@@ -105,7 +110,7 @@ const resultado = () => {
                 display.innerHTML = `<p>ln (${operandos[0]}) = ${Math.log(operandos[0]).toFixed(6)}</p>`;
                 break;
             case " * ":
-                display.innerHTML = `<p>${operandos[0]} x ${operandos[2]} = ${parseFloat(operandos[0]) * parseFloat(operandos[2])}</p>`
+                display.innerHTML = `<p>${operandos[0]} x ${operandos[2]} = ${(parseFloat(operandos[0]) * parseFloat(operandos[2])).toFixed(6)}</p>`
                 console.log(parseFloat(operandos[0]) * parseFloat(operandos[2]));
                 break;
             case " log ":
@@ -129,6 +134,7 @@ const resultado = () => {
                 console.log(parseFloat(operandos[0]) + parseFloat(operandos[2]));
                 break;
             case " memo ":
+                //tiene un evento asociado
                 break;
         }
     });
@@ -138,8 +144,8 @@ const resultado = () => {
 ac.addEventListener("click", () => {
     entrada = [];
     display.innerHTML = '';
+    mostrar = "";
 })
-
 //factorial
 const factorial = num => {
     let result = 1;
@@ -147,7 +153,8 @@ const factorial = num => {
         result *= i;
     }
     return result;
-};
+}
+
 
 
 //ayuda en algunas operaciones
@@ -166,6 +173,29 @@ giveHint(numeroE, hint3);
 giveHint(pi, hint4);
 
 
+// Memoria
+let arrayMemo = [];
+let li;
+memoria.addEventListener("click", () => {
+    memory.classList.remove("transparente");
+    clearMemo.textContent = "Clear memory";
+    li = document.createElement("li");
+    li.innerHTML = display.innerHTML;
+    listaMemo.appendChild(li);
+})
+clearMemo.addEventListener("click", () => {
+    if (listaMemo.innerHTML === "") {
+        memory.classList.add("transparente");
+        clearMemo.textContent = "Clear memory";        
+    }else {
+        listaMemo.innerHTML = "";
+        clearMemo.textContent = "Cerrar";   
+    }   
+    })
+
+
+
+
 
 //hacer que se tomen los numeros ingresados por teclado
 function teclado(elEvento) {          // copy paste
@@ -175,88 +205,141 @@ function teclado(elEvento) {          // copy paste
         // teclado numérico
         case 96:
             entrada.push(0);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 97:
             entrada.push(1);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 98:
             entrada.push(2);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 99:
             entrada.push(3);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 100:
             entrada.push(4);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 101:
             entrada.push(5);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 102:
             entrada.push(6);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 103:
             entrada.push(7);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 104:
             entrada.push(8);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 105:
             entrada.push(9);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 110:
             entrada.push(".");
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 190:
             entrada.push(".");
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 106:
             entrada.push(" * ");
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 107:
             entrada.push(" + ");
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 109:
             entrada.push(" - ");
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 111:
             entrada.push(" / ");
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         // teclado alfanumérico
         case 48:
             entrada.push(0);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 49:
             entrada.push(1);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 50:
             entrada.push(2);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 51:
             entrada.push(3);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 52:
             entrada.push(4);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 53:
             entrada.push(5);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 54:
             entrada.push(6);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 55:
             entrada.push(7);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 56:
             entrada.push(8);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 57:
             entrada.push(9);
+            mostrar += entrada[entrada.length - 1];
+            display.innerHTML = `<p>${mostrar}</p>`;
             break;
         case 13:
             entradaString = entrada.join('');    //convierto el arreglo de entrada a string
-            operandos = entradaString.split(" ");  //divido por el caracter no numérico -->aray
+            operandos = entradaString.split(" ");  //divido por el caracter "espacio" --> aray
             resultado();
             entrada = [];    //vacío el array de entrada
+            mostrar = "";
             break;
     }
 }
@@ -268,8 +351,9 @@ window.onload = function () {
 let toastTrigger = document.getElementById('liveToastBtn')
 let toastLiveExample = document.getElementById('liveToast')
 if (toastTrigger) {     //no sé por qué hace el if
-window.addEventListener("load", () => {
-    let toast = new bootstrap.Toast(toastLiveExample)
-    toast.show();
-})}
+    window.addEventListener("load", () => {
+        let toast = new bootstrap.Toast(toastLiveExample)
+        toast.show();
+    })
+}
 
