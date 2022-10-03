@@ -1,6 +1,6 @@
 let entrada = [];
 let entradaString = '';
-let operandos;
+let operandos = [];
 
 
 // rutas
@@ -38,8 +38,7 @@ botones.forEach(boton => {
 
 // click en igual
 igual.addEventListener("click", () => {
-    entradaString = entrada.join('');    //convierto el arreglo de entrada a string
-    operandos = entradaString.split(" ");  //divido por el caracter no numérico -->aray
+    operandos = entrada.join('').split(" ");
     resultado();
     entrada = [];    //vacío el array de entrada
     mostrar = "";
@@ -47,22 +46,24 @@ igual.addEventListener("click", () => {
 
 //hacer la cuenta y mostrar en display
 const resultado = () => {
-    entrada.forEach(caracter => {
+    operandos.forEach(caracter => {
         switch (caracter) {
-            case " ( ":
+            case "(":
+                combinado();
+                console.log(operandos);
                 break;
-            case " ) ":
+            case ")":
                 break;
-            case " x! ":
+            case "x!":
                 console.log(factorial(parseFloat(operandos[0])));
                 display.innerHTML = `<p>${operandos[0]}! = ${factorial(parseFloat(operandos[0]))}</p>`;
                 break;
-            case " x^2 ":
+            case "x^2":
                 let factor1 = parseFloat(operandos[0]);
                 console.log(Math.pow(factor1, 2));
                 display.innerHTML = `<p>${operandos[0]}<sup>2</sup> = ${Math.pow(factor1, 2)}</p>`;
                 break;
-            case " x^-2 ":
+            case "x^-2":
                 if (operandos[0] > 0) {
                     console.log(Math.sqrt(parseFloat(operandos[0])))
                     display.innerHTML = `<p>√${operandos[0]} = ${Math.sqrt(parseFloat(operandos[0]))}</p>`;
@@ -70,79 +71,79 @@ const resultado = () => {
                     display.innerHTML = `<sup>No se puede calcular la raíz cuadrada de un número negativo</sup>`;
                 }
                 break;
-            case " x^-n ": {
+            case "x^-n": {
                 exp = 1 / operandos[0];
                 console.log(exp)
                 console.log(Math.pow(parseFloat(operandos[2]), exp));
                 display.innerHTML = `<p><sup>${operandos[0]}</sup>√${operandos[2]} = ${Math.pow(parseFloat(operandos[2]), exp).toFixed(6)}</p>`;
             }
                 break;
-            case " seno ":
+            case "seno":
                 display.innerHTML = `<p>seno de ${operandos[0]} = ${Math.sin(operandos[0]).toFixed(6)}</p>`;
                 console.log(Math.sin(operandos[0]));
                 break;
-            case " coseno ":
+            case "coseno":
                 display.innerHTML = `<p>coseno de ${operandos[0]} = ${Math.cos(operandos[0]).toFixed(6)}</p>`;
                 console.log(Math.cos(operandos[0]));
                 break;
-            case " tangente ":
+            case "tangente":
                 display.innerHTML = `<p>tang de ${operandos[0]} = ${Math.tan(operandos[0]).toFixed(6)}</p>`;
                 console.log(Math.tan(operandos[0]));
                 break;
-            case " x^3 ":
+            case "x^3":
                 let factor = parseFloat(operandos[0]);
                 display.innerHTML = `<p>${operandos[0]}<sup>3</sup> = ${Math.pow(factor, 3)}</p>`;
                 console.log(Math.pow(factor, 3));
                 break;
-            case " x^-3 ":
+            case "x^-3":
                 let factor2 = parseFloat(operandos[0]);
                 display.innerHTML = `<p><sup>3</sup>√${operandos[0]} = ${Math.pow(factor2, 1 / 3).toFixed(6)}</p>`;
                 console.log(Math.round(Math.pow(factor2, 1 / 3)));
                 break;
-            case " x^n ":
+            case "x^n":
                 exp = operandos[2];
                 display.innerHTML = `<p>${operandos[0]}<sup>${exp}</sup> = ${Math.pow(parseFloat(operandos[0]), exp).toFixed(0)}</p>`
                 console.log(Math.round(Math.pow(parseFloat(operandos[0]), exp)));
                 break;
-            case " / ":
+            case "/":
                 display.innerHTML = `<p>${operandos[0]} / ${operandos[2]} = ${(operandos[0] / operandos[2]).toFixed(6)}</p>`
                 console.log(parseFloat(operandos[0]) / parseFloat(operandos[2]));
                 break;
-            case " % ":
+            case "%":
                 display.innerHTML = `<p>el ${operandos[0]}% de ${operandos[2]} es ${operandos[0] / 100 * operandos[2]}</p>`
                 break;
-            case " ln ":
+            case "ln":
                 if (parseFloat(operandos[0]) >= 0) {
                     display.innerHTML = `<p>ln (${operandos[0]}) = ${Math.log(operandos[0]).toFixed(6)}</p>`;
                 } else {
                     display.innerHTML = `<sup>No existe el logaritmo de un número negativo</sup>`
                 }
                 break;
-            case " * ":
+            case "*":
                 display.innerHTML = `<p>${operandos[0]} x ${operandos[2]} = ${(parseFloat(operandos[0]) * parseFloat(operandos[2])).toFixed(6)}</p>`
                 console.log(parseFloat(operandos[0]) * parseFloat(operandos[2]));
                 break;
-            case " log ":
+            case "log":
                 if (parseFloat(operandos[0]) >= 0) {
                     display.innerHTML = `<p>log (${operandos[0]}) = ${Math.log10(operandos[0]).toFixed(6)}</p>`;
                 } else {
                     display.innerHTML = `<sup>No existe el logaritmo de un número negativo</sup>`
                 }
                 break;
-            case " e ":
+            case "e":
                 //tiene un value asociado
                 break;
-            case " - ":
+            case "-":
                 display.innerHTML = `<p>${operandos[0]} - ${operandos[2]} = ${parseFloat(operandos[0]) - parseFloat(operandos[2])}</p>`
                 console.log(parseFloat(operandos[0]) - parseFloat(operandos[2]));
                 break;
-            case " ac ":
+            case "ac":
                 // tiene un evento asociado
                 break;
             case "pi":
                 //tiene un value asociado
                 break;
-            case " + ":
+            case "+":
                 display.innerHTML = `<p>${operandos[0]} + ${operandos[2]} = ${parseFloat(operandos[0]) + parseFloat(operandos[2])}</p>`
                 console.log(parseFloat(operandos[0]) + parseFloat(operandos[2]));
                 break;
@@ -212,7 +213,6 @@ clearMemo.addEventListener("click", () => {
         clearMemo.textContent = "Cerrar";
     }
 })
-
 
 
 //hacer que se tomen los numeros ingresados por teclado
@@ -364,7 +364,7 @@ function teclado(elEvento) {          // copy paste
 window.onload = function () {
     display.innerHTML = '';
     mostrar = "";
-    document.onkeydown = teclado;
+    document.onkeydown = teclado;  //llamo a la función declarada arriba 
 }
 
 //toast de bootstrap
@@ -376,4 +376,108 @@ if (toastTrigger) {     //no sé por qué hace el if
         toast.show();
     })
 }
+
+
+// operaciones combinadas 
+//(·9·+·3·)·+·5 =
+
+const combinado = () => {
+    let insideParentesis = [];
+    let result = 0;
+    let i = operandos.indexOf("(") + 1;
+    if (operandos.indexOf(")") !== -1) {
+        for (; i < operandos.indexOf(")"); i++) {
+            insideParentesis.push(operandos[i])
+        }
+        let cuenta = insideParentesis[1];
+        switch (cuenta) {
+            case "x!":
+                result = factorial(parseFloat(insideParentesis[0]));
+                break;
+            case "x^2":
+                let factor1 = parseFloat(insideParentesis[0]);
+                result = Math.pow(factor1, 2);
+                break;
+            case "x^-2":
+                if (insideParentesis[0] > 0) {
+                    result = Math.sqrt(parseFloat(insideParentesis[0]));
+                } else {
+                    result = `<sup>No se puede calcular la raíz cuadrada de un número negativo</sup>`;
+                }
+                break;
+            case "x^-n":
+                exp = 1 / insideParentesis[0];
+                result = Math.pow(parseFloat(insideParentesis[2]), exp).toFixed(6);
+                break;
+            case "seno":
+                result = Math.sin(insideParentesis[0]).toFixed(6);
+                break;
+            case "coseno":
+                result = Math.cos(insideParentesis[0]).toFixed(6);
+                break;
+            case "tangente":
+                result = Math.tan(insideParentesis[0]).toFixed(6);
+                break;
+            case "x^3":
+                let factor = parseFloat(insideParentesis[0]);
+                result = Math.pow(factor, 3);
+                break;
+            case "x^-3":
+                let factor2 = parseFloat(insideParentesis[0]);
+                result = Math.pow(factor2, 1 / 3).toFixed(6);
+                break;
+            case "x^n":
+                exp = insideParentesis[2];
+                result = Math.pow(parseFloat(insideParentesis[0]), exp).toFixed(0);
+                break;
+            case "/":
+                result = (insideParentesis[0] / insideParentesis[2]).toFixed(6);
+                break;
+            case "%":
+                result = insideParentesis[0] / 100 * insideParentesis[2];
+                break;
+            case "ln":
+                if (parseFloat(insideParentesis[0]) >= 0) {
+                    result = Math.log(insideParentesis[0]).toFixed(6);
+                } else {
+                    result = `<sup>No existe el logaritmo de un número negativo</sup>`
+                }
+                break;
+            case "*":
+                result = (parseFloat(insideParentesis[0]) * parseFloat(insideParentesis[2])).toFixed(6);
+                break;
+            case "log":
+                if (parseFloat(insideParentesis[0]) >= 0) {
+                    result = Math.log10(insideParentesis[0]).toFixed(6);
+                } else {
+                    result = `<sup>No existe el logaritmo de un número negativo</sup>`
+                }
+                break;
+            case "e":
+                //tiene un value asociado
+                break;
+            case "-":
+                result = parseFloat(insideParentesis[0]) - parseFloat(insideParentesis[2]);
+                break;
+            case "ac":
+                // tiene un evento asociado
+                break;
+            case "pi":
+                //tiene un value asociado
+                break;
+            case "+":
+                result = parseFloat(insideParentesis[0]) + parseFloat(insideParentesis[2]);
+                break;
+            case " memo ":
+                //tiene un evento asociado
+                break;
+        }
+        let indice = operandos.indexOf(")") - operandos.indexOf("(");
+        operandos.splice(operandos.indexOf("("), indice + 1, result);
+        resultado();
+        // return result;
+    }
+}
+
+
 
