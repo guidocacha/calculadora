@@ -159,6 +159,7 @@ ac.addEventListener("click", () => {
     display.innerHTML = '';
     mostrar = "";
 })
+
 //factorial
 const factorial = num => {
     let result = 1;
@@ -170,7 +171,7 @@ const factorial = num => {
 
 
 
-//ayuda en algunas operaciones
+//ayuda en algunas operaciones (hints)
 //-- f
 const giveHint = (domElement, hint) => {
     domElement.addEventListener("mouseover", () => {
@@ -192,9 +193,15 @@ let li;
 memoria.addEventListener("click", () => {
     memory.classList.remove("transparente");
     clearMemo.textContent = "Clear memory";
-    li = document.createElement("li");
-    li.innerHTML = display.innerHTML;
-    listaMemo.appendChild(li);
+    if (display.innerHTML === "") {
+        li = document.createElement("li");
+        li.innerHTML = `Nada en el display para agregar en memoria`;
+        listaMemo.appendChild(li);
+    } else {
+        li = document.createElement("li");
+        li.innerHTML = display.innerHTML;
+        listaMemo.appendChild(li);
+    }
 })
 clearMemo.addEventListener("click", () => {
     if (listaMemo.innerHTML === "") {
@@ -355,6 +362,8 @@ function teclado(elEvento) {          // copy paste
     }
 }
 window.onload = function () {
+    display.innerHTML = '';
+    mostrar = "";
     document.onkeydown = teclado;
 }
 
